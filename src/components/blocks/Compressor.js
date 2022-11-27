@@ -6,7 +6,7 @@ const fileTypes = ["JPG", "PNG", "GIF"];
 export const Compressor = () => {
   const [files, setFiles] = useState([]);
   const handleChange = (files) => {
-    setFiles((prev) => [files, ...prev]);
+    setFiles((prev) => (prev ? [...files, ...prev] : [...files]));
   };
   console.log(files);
   return (
@@ -18,11 +18,9 @@ export const Compressor = () => {
         name="files"
         types={fileTypes}
       />
-      <div>
-        {files.fileList.map((file) => (
-          <>{file.name}</>
-        ))}
-      </div>
+      {files.map((file, index) => (
+        <div key={index}>{file.name}</div>
+      ))}
     </main>
   );
 };
