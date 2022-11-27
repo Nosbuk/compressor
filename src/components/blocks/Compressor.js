@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
+import { supabase } from "../../supabase";
 
 const fileTypes = ["JPG", "PNG", "GIF"];
 
@@ -8,7 +9,7 @@ export const Compressor = () => {
   const handleChange = (files) => {
     setFiles((prev) => (prev ? [...files, ...prev] : [...files]));
   };
-  console.log(files);
+  console.log(supabase);
   return (
     <main className="max-w-6xl mx-auto mt-12">
       <FileUploader
